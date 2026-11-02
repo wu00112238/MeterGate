@@ -3,17 +3,8 @@
   "version": "1.0.1",
   "stage": "OPS",
   "cycle": 1,
-  "updated_at": "2026-11-02T11:35:13Z",
+  "updated_at": "2026-11-02T13:53:45Z",
   "modules": {
-    ".agents/skills/flywheel/README.md": {
-      "sha256": "f75bbc112159278725315a8b028f600d1026549f9829e87abe17bb9ea6199f0a"
-    },
-    ".agents/skills/flywheel/SKILL.md": {
-      "sha256": "457194a6847fbdcd84798bbb15f82a52d49332f49a3a75c895d28d4d684aca80"
-    },
-    ".agents/skills/flywheel/references/FLYWHEEL_SPEC.md": {
-      "sha256": "359486dd4840cd239923a271b5a16b7491086bcf91bf6a23079b57b5c2bfd583"
-    },
     ".github/ISSUE_TEMPLATE/custom_build.md": {
       "sha256": "c0efc50d0b929d6be92b475908712de1088aadf9533d898da8fae465e6dee5f0"
     },
@@ -26,9 +17,6 @@
     ".github/workflows/publish-pypi.yml": {
       "sha256": "09ad9e712f71123f92a3476160b4aae5c20c3da5fd16b0fe30e45cd669fe8440"
     },
-    "AGENTS.md": {
-      "sha256": "eecef279824a3b416865c4add8d50a99d751ee6808ea6604c37c36eabde1e155"
-    },
     "CHANGELOG.md": {
       "sha256": "59e1048018b6e576a3b55962ab79de42830bf69f62f85b3ecffab04e52a3373a"
     },
@@ -39,7 +27,7 @@
       "sha256": "fde277efea9ae676e2c58ec16deb3b7c1eb92a0dc1cadaa218c3fe6b0a2ae807"
     },
     "README.md": {
-      "sha256": "1cb72a8cac12e765bda8f7978037825f0bfb44ca886b2b2641032a6480af1bd9"
+      "sha256": "4cb1ab91dcd5e180dbf2341536c24e043582c2eda5afac83f760bacd4381853c"
     },
     "SECURITY.md": {
       "sha256": "7e515b1a97b8e2a70b378544ed5ddb177095ecb650762c4f47f826a02f79e627"
@@ -48,13 +36,10 @@
       "sha256": "0b49a217733a7741a4a3ff83b0f3b68295ff9684b667f07c3bec8da51b77ef3a"
     },
     "docs/BILINGUAL_SPEC.md": {
-      "sha256": "24dfe7358604a2965f59d6222c44fed9203f8f895f22344a20c446a4554d5399"
+      "sha256": "ad938a96730e93fde2ad38e0ea3f5bf642ecfac5f97a3bd5f74b73d45b3a9178"
     },
     "docs/DESIGN.md": {
       "sha256": "860f8c75e739324e6feec61462ca5df3bdfd22e72b9e5f22dde5fdee705baa81"
-    },
-    "docs/OPS_FEEDBACK.md": {
-      "sha256": "c60f7c1152942bfa75ea26eb0bf44ffd511fa4934ec145c4485b1036e52db34e"
     },
     "docs/PRD.md": {
       "sha256": "d78cfecac6aaed5448eb862be687dd4b60357cc998f89ebcd0cd7a4064b3fd82"
@@ -70,12 +55,6 @@
     },
     "src/__init__.py": {
       "sha256": "4b5b4fad9a0173d1512ef69b475cf49934cdb75f8f7ef6e118689b6afa59e9d9"
-    },
-    "src/flywheel/__init__.py": {
-      "sha256": "041d4e71d952b09a1e65ea97b2926492dd46d6772748752b1a2b9256dcb81676"
-    },
-    "src/flywheel/cli.py": {
-      "sha256": "173e368a4b20d9a45a0e9a78251456eee857ff5e70dc450f2557673fa85c3237"
     },
     "src/metergate/__init__.py": {
       "sha256": "60d3a7ba35e257a0f852ff050fd89ca81f923c4e105bd1032170bb3e420028a7"
@@ -141,13 +120,10 @@
       "sha256": "3c25598d08b087a3273a8808e06b9983719fc6e61651417af8c96a194177b473"
     },
     "test_all.py": {
-      "sha256": "bcb7a99ba23abb8e03b63a998ff944988f850b926a2884db12c7b5fcc3fa8d80"
-    },
-    "tests/test_flywheel.py": {
-      "sha256": "2642f34229714d3a366f0dc40c12bf55e7046245b79d37b63f665e98143912f9"
+      "sha256": "be0cffb5bdf2395598ca505f40e881001544c7b20d0f4a770896b7ea73cc0d82"
     },
     "tests/test_metergate.py": {
-      "sha256": "1d8f9da8b37a3fe2f85ccf9990010616d14bedb7e111ea65c42b19148e80422e"
+      "sha256": "1339108ab8c5b8b94fddc3084e3fcc61ca686cedd53cd7e5291b077df0d053fb"
     }
   }
 }

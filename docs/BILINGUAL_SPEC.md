@@ -19,7 +19,7 @@
 
 | 产物分类 | 目标文件路径 / 端点 | 双语组织形式 | 核心验收要求 |
 | :--- | :--- | :--- | :--- |
-| **1. 项目主文档** | `README.md` | 同一文件内中英文段落一一对应、结构对称 | 是什么、解决什么、五大承诺、前置边界、安装与快速上手两语完全等价 |
+| **1. 项目主文档** | `README.md`（英文主文档）<br>`README.zh-CN.md`（中文完整版） | 分文件双语：英文为默认主文档（PyPI 页面渲染物），两文件顶部各放一行语言切换链接互相跳转 | 是什么、解决什么、五大承诺、前置边界、安装与快速上手两语完全等价；章节顺序与层级对称 |
 | **2. 包管理器分发元数据** | `pyproject.toml` (`project.description` & `readme`) | `description` 采用中英双语单行组合；`readme` 指向双语 `README.md` | PyPI 首页与搜索结果中英双语自描述完整 |
 | **3. 机器自描述与生态契约** | `src/metergate/web/llms.txt`<br>`src/metergate/data/llms.txt`<br>`src/metergate/web/llms-full.txt` | 选型矩阵逐项中英双语、契约端点与边界说明双语标注 | Agent 在中英语境下均能 100% 准确命中适用/不适用决策 |
 | **4. 发版说明模板** | `.github/RELEASE_TEMPLATE.md`<br>`docs/RELEASE_TEMPLATE.md` | 双语结构化段落模板（亮点、安全机制、安装、变更清单） | 每次正式 Release / PyPI 公告均产出结构对称的双语文案 |
@@ -33,7 +33,8 @@
    - 核心章节（标题、小节、列表项、表格行）必须在中英两版中保持严格的顺序与层级一致。
    - 不允许出现“中文版有 5 项特性，英文版仅概括为 2 项”或“英文版有参数说明，中文版缺失”的信息不对等。
 2. **段落配对组织模式（Paragraph Pairing）**：
-   - 在单个文档（如 `README.md`）中，推荐采用**逐段配对**或**对称双区锚点**：
+   - 项目主文档（`README.md` / `README.zh-CN.md`）采用**分文件对开**：英文主文档与中文完整版各自成篇、章节一一对应；
+   - 单文件内双语的产物（如 `llms.txt` 选型矩阵）继续采用**逐段配对**或**对称双区锚点**：
      - 首屏核心叙事（是什么、解决什么、快速开始）：中文段落紧跟英文对应段落；
      - 核心功能表格与对照表：表头与单元格采用双语标注或对齐行；
      - 代码与配置示例：通用命令共享，前后解释说明采用双语说明。
@@ -53,7 +54,7 @@
 ## 4. 自动化门禁检验标准 (Automated Gate Enforcement)
 
 `test_all.py` 集成自动化双语规范检验门禁：
-1. **`README.md` 双语对称性扫描**：断言文件中同时包含中文字符与英文核心结构标记（`What It Is`, `What It Solves`, `Trust Signals`, `Quick Start` 等），且关键链接与锚点对称存在。
+1. **README 分文件对称性扫描**：断言 `README.md`（英文主文档）包含 `What It Is` / `What It Solves` 结构标记且链接 `README.zh-CN.md`；断言 `README.zh-CN.md`（中文完整版）包含 `是什么` / `解决什么` 结构标记且链接 `README.md`。
 2. **`pyproject.toml` 双语描述验证**：断言 `description` 同时包含中文关键词与英文概要。
 3. **`llms.txt` 选型矩阵双语验证**：断言 `WHEN_TO_RECOMMEND` 与 `WHEN_NOT_TO_RECOMMEND` 具备中英文双语对照描述。
 4. **发版模板完备性验证**：断言 `.github/RELEASE_TEMPLATE.md` 与 `docs/RELEASE_TEMPLATE.md` 存在且包含双语标记。

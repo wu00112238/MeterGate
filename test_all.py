@@ -27,6 +27,7 @@ import src.metergate as mg_pkg
 CORE_REQUIRED_FILES = [
     "CHANGELOG.md",
     "README.md",
+    "README.zh-CN.md",
     "LICENSE",
     "SECURITY.md",
     "pyproject.toml",
@@ -587,14 +588,15 @@ def main() -> int:
 
     # M-06, M-13, M-14, M-15: README, Hub Link & Issue Templates
     readme_path = ROOT / "README.md"
+    readme_zh_path = ROOT / "README.zh-CN.md"
     if readme_path.exists() and is_tracked("README.md"):
         readme_txt = readme_path.read_text(encoding="utf-8")
-        if "https://00112238.xyz" not in readme_txt or "更多省时间工具" not in readme_txt:
+        if "https://00112238.xyz" not in readme_txt:
             errors.append(
                 report_error(
                     "门禁项: M-13 统一枢纽链接 (M-13 Hub Link Gate)",
                     "README.md",
-                    "缺少 00112238.xyz 或『更多省时间工具』统一文案 (M-13 violation)",
+                    "缺少 00112238.xyz 统一枢纽链接 (M-13 violation)",
                     "在 README.md 补充指向 https://00112238.xyz 的更多省时间工具文案",
                 )
             )
@@ -605,6 +607,18 @@ def main() -> int:
                     "README.md",
                     "缺少演示动图 docs/demo.gif 引用 (M-06 violation)",
                     "在 README.md 首屏嵌入 ![MeterGate Demo Animation](docs/demo.gif)",
+                )
+            )
+
+    if readme_zh_path.exists() and is_tracked("README.zh-CN.md"):
+        readme_zh_txt = readme_zh_path.read_text(encoding="utf-8")
+        if "https://00112238.xyz" not in readme_zh_txt or "更多省时间工具" not in readme_zh_txt:
+            errors.append(
+                report_error(
+                    "门禁项: M-13 统一枢纽链接 (M-13 Hub Link Gate)",
+                    "README.zh-CN.md",
+                    "缺少 00112238.xyz 或『更多省时间工具』统一文案 (M-13 violation)",
+                    "在 README.zh-CN.md 补充指向 https://00112238.xyz 的更多省时间工具文案",
                 )
             )
 
@@ -631,22 +645,43 @@ def main() -> int:
     # ---------------------------------------------------------
     if readme_path.exists() and is_tracked("README.md"):
         rtxt = readme_path.read_text(encoding="utf-8")
-        if "中文说明" not in rtxt or "English Summary" not in rtxt:
+        if "What It Is" not in rtxt or "What It Solves" not in rtxt:
             errors.append(
                 report_error(
                     "门禁项: 对外产物中英双语规范 (Bilingual Spec Gate)",
                     "README.md",
-                    "README.md 缺少中英双语对称章节标记 ('中文说明' 与 'English Summary')",
-                    "按照 docs/BILINGUAL_SPEC.md 规范提供对称双语段落",
+                    "README.md (英文主文档) 缺少 'What It Is' / 'What It Solves' 核心结构段落",
+                    "按照 docs/BILINGUAL_SPEC.md 规范，README.md 为纯英文主文档并链接 README.zh-CN.md",
                 )
             )
-        if "是什么" not in rtxt or "What It Is" not in rtxt:
+        if "README.zh-CN.md" not in rtxt:
             errors.append(
                 report_error(
                     "门禁项: 对外产物中英双语规范 (Bilingual Spec Gate)",
                     "README.md",
-                    "README.md 核心定位缺少 '是什么 / What It Is' 对称段落",
-                    "在 README.md 中补充对称核心定位说明",
+                    "README.md 缺少指向 README.zh-CN.md 的语言切换链接",
+                    "在 README.md 顶部补充指向 README.zh-CN.md 的语言切换链接",
+                )
+            )
+
+    if readme_zh_path.exists() and is_tracked("README.zh-CN.md"):
+        rzh_txt = readme_zh_path.read_text(encoding="utf-8")
+        if "是什么" not in rzh_txt or "解决什么" not in rzh_txt:
+            errors.append(
+                report_error(
+                    "门禁项: 对外产物中英双语规范 (Bilingual Spec Gate)",
+                    "README.zh-CN.md",
+                    "README.zh-CN.md (中文完整版) 缺少 '是什么' / '解决什么' 核心结构段落",
+                    "按照 docs/BILINGUAL_SPEC.md 规范，README.zh-CN.md 为纯中文完整版并链接 README.md",
+                )
+            )
+        if "README.md" not in rzh_txt:
+            errors.append(
+                report_error(
+                    "门禁项: 对外产物中英双语规范 (Bilingual Spec Gate)",
+                    "README.zh-CN.md",
+                    "README.zh-CN.md 缺少指向 README.md 的语言切换链接",
+                    "在 README.zh-CN.md 顶部补充指向 README.md 的语言切换链接",
                 )
             )
 
