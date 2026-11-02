@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metergate"
+version = "1.0.1"
+description = "MeterGate: 本地零遥测 AI Agent 三层防火墙与官方单价 Token 对账网关 | Zero-Telemetry Local AI Agent 3-Tier Firewall, Token Ledger & MCP Middleware"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name = "MeterGate Contributors", email = "wu00112238@users.noreply.github.com" }
+]
+keywords = ["ai-agent", "security", "firewall", "prompt-injection", "cost-ledger", "llm-gateway", "mcp", "json-rpc", "uvx", "pipx"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Security",
+  "Topic :: Internet :: Proxy Servers"
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/wu00112238/MeterGate"
+Repository = "https://github.com/wu00112238/MeterGate"
+Issues = "https://github.com/wu00112238/MeterGate/issues"
+MoreTools = "https://00112238.xyz"
+
+[project.scripts]
+metergate = "metergate.cli:main_entry"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+metergate = ["config/*.json", "web/*.html", "data/*.json", "data/*.txt"]

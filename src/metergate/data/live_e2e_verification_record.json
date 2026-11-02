@@ -1,0 +1,44 @@
+{
+  "verification_id": "live_e2e_f572f8b69b87",
+  "project": "MeterGate",
+  "version": "1.0.1",
+  "verified_at": "2026-10-28T08:36:07Z",
+  "all_assertions_passed": true,
+  "topology": {
+    "gateway_url": "http://127.0.0.1:54659",
+    "primary_upstream_url": "http://127.0.0.1:34221/v1",
+    "secondary_upstream_url": "http://127.0.0.1:62763/v1",
+    "transport": "real_tcp_http_and_sse"
+  },
+  "stages": {
+    "stage_1_live_sse_and_redaction": {
+      "http_status": 200,
+      "request_id_echoed": true,
+      "sse_frames_received": 12,
+      "saw_done_marker": true,
+      "secret_redacted_before_upstream": true
+    },
+    "stage_2_three_tier_firewall_and_ephemeral_token": {
+      "spoofed_context_attack_http_status": 403,
+      "token_id": "mg_eph_05afea3ae17b",
+      "approved_retry_http_status": 200,
+      "replay_blocked_http_status": 403
+    },
+    "stage_3_multi_upstream_failover": {
+      "primary_forced_status": 503,
+      "failover_response_http_status": 200,
+      "selected_upstream": "http://127.0.0.1:62763/v1",
+      "failover_count": 1,
+      "secondary_requests_handled": 1
+    },
+    "stage_4_cost_ledger_report_and_audit_integrity": {
+      "audit_chain_valid": true,
+      "audit_checked_entries": 6,
+      "today_spent_usd": 0.000304,
+      "intercepted_threats_today": 2
+    }
+  },
+  "reproduce_command": "metergate benchmark",
+  "record_sha256": "4a03d17433f6d2d22d1025a476e30c8872dba10dfb3e3d76b01683640a95c60b",
+  "integrity_seal_hmac": "ea91dbcf25d413a9dfe8aea593a9c7737685ab7bbe7347dbb5ee61c253a26f12"
+}

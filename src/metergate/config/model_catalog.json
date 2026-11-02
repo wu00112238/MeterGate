@@ -1,0 +1,133 @@
+{
+  "catalog_version": "1.0.1",
+  "updated_at": "2026-10-28T00:00:00Z",
+  "pricing_authority": "OFFICIAL_PUBLISHED_PROVIDER_RATES_USD_PER_1K_TOKENS",
+  "pricing_note_zh": "本价目表仅收录真实公开可核对的官方模型单价（单位：USD / 1K tokens）。账本将『已回填真实花费 (Actual Reconciled)』与『未回填预估花费 (Estimated)』严格分离统计，不与虚构基线对比。",
+  "pricing_note_en": "Contains strictly real, publicly verifiable provider API rates (USD per 1,000 tokens). Actual usage-reconciled spend and pre-response estimated spend are tracked separately.",
+  "baseline_model_id": "claude-3-7-sonnet-latest",
+  "detection_system1_cost_per_1k_tokens_usd": 0.0,
+  "models": {
+    "gpt-4o-mini": {
+      "model_id": "gpt-4o-mini",
+      "display_name": "OpenAI GPT-4o mini",
+      "provider": "openai",
+      "official_pricing_url": "https://openai.com/api/pricing/",
+      "verifiable_official_rate": true,
+      "tier": "system1_classifier",
+      "input_cost_per_1k_usd": 0.00015,
+      "output_cost_per_1k_usd": 0.0006,
+      "cached_input_cost_per_1k_usd": 7.5e-05,
+      "base_latency_ms": 65.0,
+      "quality_prior": 0.9,
+      "max_context_tokens": 128000,
+      "capabilities": [
+        "classification",
+        "json_schema",
+        "routing_triage",
+        "summarization"
+      ]
+    },
+    "deepseek-chat": {
+      "model_id": "deepseek-chat",
+      "display_name": "DeepSeek-V3 (deepseek-chat)",
+      "provider": "deepseek",
+      "official_pricing_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "verifiable_official_rate": true,
+      "tier": "fast_execution",
+      "input_cost_per_1k_usd": 0.00027,
+      "output_cost_per_1k_usd": 0.0011,
+      "cached_input_cost_per_1k_usd": 7e-05,
+      "base_latency_ms": 95.0,
+      "quality_prior": 0.92,
+      "max_context_tokens": 64000,
+      "capabilities": [
+        "summarization",
+        "crud_tool_call",
+        "log_analysis",
+        "translation",
+        "json_schema"
+      ]
+    },
+    "claude-3-5-haiku-latest": {
+      "model_id": "claude-3-5-haiku-latest",
+      "display_name": "Anthropic Claude 3.5 Haiku",
+      "provider": "anthropic",
+      "official_pricing_url": "https://www.anthropic.com/pricing#api",
+      "verifiable_official_rate": true,
+      "tier": "fast_execution",
+      "input_cost_per_1k_usd": 0.0008,
+      "output_cost_per_1k_usd": 0.004,
+      "cached_input_cost_per_1k_usd": 8e-05,
+      "base_latency_ms": 110.0,
+      "quality_prior": 0.93,
+      "max_context_tokens": 200000,
+      "capabilities": [
+        "summarization",
+        "classification",
+        "crud_tool_call",
+        "json_schema"
+      ]
+    },
+    "gpt-4o": {
+      "model_id": "gpt-4o",
+      "display_name": "OpenAI GPT-4o",
+      "provider": "openai",
+      "official_pricing_url": "https://openai.com/api/pricing/",
+      "verifiable_official_rate": true,
+      "tier": "balanced_coding",
+      "input_cost_per_1k_usd": 0.0025,
+      "output_cost_per_1k_usd": 0.01,
+      "cached_input_cost_per_1k_usd": 0.00125,
+      "base_latency_ms": 220.0,
+      "quality_prior": 0.95,
+      "max_context_tokens": 128000,
+      "capabilities": [
+        "code_refactoring",
+        "unit_tests",
+        "ast_analysis",
+        "multi_tool_chain"
+      ]
+    },
+    "claude-3-7-sonnet-latest": {
+      "model_id": "claude-3-7-sonnet-latest",
+      "display_name": "Anthropic Claude 3.7 Sonnet",
+      "provider": "anthropic",
+      "official_pricing_url": "https://www.anthropic.com/pricing#api",
+      "verifiable_official_rate": true,
+      "tier": "balanced_coding",
+      "input_cost_per_1k_usd": 0.003,
+      "output_cost_per_1k_usd": 0.015,
+      "cached_input_cost_per_1k_usd": 0.0003,
+      "base_latency_ms": 340.0,
+      "quality_prior": 0.97,
+      "max_context_tokens": 200000,
+      "capabilities": [
+        "code_refactoring",
+        "unit_tests",
+        "architecture_review",
+        "multi_tool_chain"
+      ]
+    },
+    "claude-opus-4-6": {
+      "model_id": "claude-opus-4-6",
+      "display_name": "Anthropic Claude Opus 4.6",
+      "provider": "anthropic",
+      "official_pricing_url": "https://www.anthropic.com/pricing#api",
+      "verifiable_official_rate": true,
+      "tier": "sota_flagship",
+      "input_cost_per_1k_usd": 0.015,
+      "output_cost_per_1k_usd": 0.075,
+      "cached_input_cost_per_1k_usd": 0.0015,
+      "base_latency_ms": 780.0,
+      "quality_prior": 0.99,
+      "max_context_tokens": 200000,
+      "capabilities": [
+        "zero_to_one_architecture",
+        "complex_proof",
+        "deep_security_audit",
+        "novel_synthesis"
+      ]
+    }
+  },
+  "max_freshness_days": 30
+}

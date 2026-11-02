@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  metergate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: metergate:1.0.1
+    container_name: metergate-gateway
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      METERGATE_DB_PATH: /data/metergate.sqlite3
+      METERGATE_POLICY_PATH: /config/default_policy.json
+      METERGATE_UPSTREAM_URL: "${METERGATE_UPSTREAM_URL:-}"
+    volumes:
+      - metergate_data:/data
+      - ./src/metergate/config:/config:ro
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request, sys; resp = urllib.request.urlopen('http://127.0.0.1:8787/healthz', timeout=3); sys.exit(0 if resp.status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  metergate_data:
+    driver: local

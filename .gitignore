@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / test / env files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.DS_Store
+__MACOSX/
+*.egg-info/
+.env
+dist/
+build/
+
+# Flywheel Skill & Framework (排除飞轮技能与框架代码)
+.agents/
+src/flywheel/
+tests/test_flywheel.py
+
+# Management & Operational State Documents (排除管理与交接文档)
+AGENTS.md
+MEMORY.md
+docs/OPS_FEEDBACK.md

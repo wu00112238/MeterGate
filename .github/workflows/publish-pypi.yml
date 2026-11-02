@@ -1,0 +1,52 @@
+name: Publish MeterGate to PyPI
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Flywheel Full Verification Gate (test_all.py)
+        run: python3 test_all.py
+
+      - name: Build sdist and wheel for PyPI (pipx / uvx ready)
+        run: |
+          python3 -m pip install --upgrade build
+          python3 -m build
+
+      - name: Upload distribution artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pypi-dist
+          path: dist/
+
+  publish-pypi:
+    needs: verify-and-build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/metergate
+    steps:
+      - name: Download built artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: pypi-dist
+          path: dist/
+
+      - name: Publish to PyPI via Trusted Publisher (OIDC)
+        uses: pypa/gh-action-pypi-publish@release/v1

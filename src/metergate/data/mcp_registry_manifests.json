@@ -1,0 +1,87 @@
+{
+  "registry_manifest_version": "1.0.1",
+  "project": "MeterGate",
+  "version": "1.0.1",
+  "license": "MIT",
+  "synchronized_with_contract": "/.well-known/metergate.json",
+  "install_methods": {
+    "uvx_zero_install": "uvx metergate serve --mcp-stdio",
+    "pipx_isolated_install": "pipx install metergate",
+    "pip_standard_install": "pip install metergate"
+  },
+  "official_mcp_registry": {
+    "name": "io.github.wu00112238/metergate",
+    "display_name": "MeterGate — AI Agent Security Firewall & Official-Rate Cost Ledger",
+    "description": "Zero-dependency local AI Agent 3-Tier Firewall (.env/API key vault redaction, prompt injection & Lethal Trifecta guard) and official-rate verifiable API cost ledger. Supports zero-risk Observe-Only mode.",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": {
+      "url": "https://github.com/wu00112238/MeterGate",
+      "source": "github"
+    },
+    "packages": [
+      {
+        "registry_name": "pypi",
+        "name": "metergate",
+        "version": "1.0.1",
+        "runtime_hint": "uvx",
+        "runtime_arguments": [
+          "metergate",
+          "serve",
+          "--mcp-stdio"
+        ],
+        "environment_variables": []
+      }
+    ],
+    "transports": [
+      "stdio",
+      "streamable-http"
+    ],
+    "tools": [
+      "metergate_inspect_and_guard",
+      "metergate_check_budget",
+      "metergate_self_describe",
+      "metergate_remediate_false_positive"
+    ]
+  },
+  "smithery_directory": {
+    "schema": "https://smithery.ai/schema/smithery.yaml",
+    "name": "metergate",
+    "displayName": "MeterGate Security Firewall & Cost Ledger",
+    "version": "1.0.1",
+    "startCommand": {
+      "type": "stdio",
+      "commandFunction": "() => ({ command: 'uvx', args: ['metergate', 'serve', '--mcp-stdio'] })"
+    },
+    "tags": [
+      "security",
+      "firewall",
+      "prompt-injection",
+      "cost-ledger",
+      "finops",
+      "local-first",
+      "zero-telemetry"
+    ]
+  },
+  "pulsemcp_and_glama_directory": {
+    "slug": "metergate",
+    "title": "MeterGate (v1.0.1)",
+    "category": "Security & Cost Management",
+    "telemetry": "none",
+    "offline_capable": true,
+    "observe_only_mode_supported": true,
+    "single_instance_max_concurrency": 32,
+    "one_line_mcp_config": {
+      "mcpServers": {
+        "metergate": {
+          "command": "uvx",
+          "args": [
+            "metergate",
+            "serve",
+            "--mcp-stdio"
+          ]
+        }
+      }
+    }
+  }
+}
