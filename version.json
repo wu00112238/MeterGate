@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "stage": "OPS",
   "cycle": 1,
-  "updated_at": "2026-11-02T13:53:45Z",
+  "updated_at": "2026-11-02T13:54:19Z",
   "modules": {
     ".github/ISSUE_TEMPLATE/custom_build.md": {
       "sha256": "c0efc50d0b929d6be92b475908712de1088aadf9533d898da8fae465e6dee5f0"
@@ -28,6 +28,9 @@
     },
     "README.md": {
       "sha256": "4cb1ab91dcd5e180dbf2341536c24e043582c2eda5afac83f760bacd4381853c"
+    },
+    "README.zh-CN.md": {
+      "sha256": "37af49aa92c9697c15e289e64235493a49437574caeea8a5aa4267529a6f1d3a"
     },
     "SECURITY.md": {
       "sha256": "7e515b1a97b8e2a70b378544ed5ddb177095ecb650762c4f47f826a02f79e627"
